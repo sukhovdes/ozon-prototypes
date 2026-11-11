@@ -1,25 +1,28 @@
 export const AXES=['income','reliability','withdrawal'];
 export const TITLES={income:'Доходность',reliability:'Надежность',withdrawal:'Доступность денег к выводу'};
-export const TICKS=[25,122.667,220.333,318];
-export const DEFAULT_LEVELS={income:1,reliability:2,withdrawal:1};
-const level=(value,fallback)=>Number.isFinite(value)?Math.max(0,Math.min(3,Math.round(value))):fallback;
+export const TICKS=[25,171.5,318];
+export const LEVEL_NAMES=['Минимум','Средне','Максимум'];
+export const DEFAULT_LEVELS={income:1,reliability:1,withdrawal:1};
+const level=(value,fallback=1)=>Number.isFinite(value)?Math.max(0,Math.min(2,Math.round(value))):fallback;
 export function normalizeState(input={}){
- const state={...DEFAULT_LEVELS,touched:AXES.map((_,i)=>Math.max(0,Math.floor(Number(input.touched?.[i])||0))),cardIndex:input.cardIndex===1?1:0,guideStep:Math.max(0,Math.min(2,Math.round(input.guideStep||0)))};
- AXES.forEach(axis=>state[axis]=level(input[axis],DEFAULT_LEVELS[axis]));
- // Preserve precise four-step positions unless a different legacy 3×3 point was selected.
- if(Number.isFinite(input.risk)&&(!Number.isFinite(input.income)||Math.round(state.income/3*2)!==Math.round(input.risk*2)))state.income=level(input.risk*3,1);
- if(Number.isFinite(input.access)&&(!Number.isFinite(input.withdrawal)||Math.round((1-state.withdrawal/3)*2)!==Math.round(input.access*2)))state.withdrawal=level((1-input.access)*3,1);
- if(AXES.every(axis=>state[axis]===3)){const oldest=AXES.reduce((a,b)=>state.touched[AXES.indexOf(a)]<=state.touched[AXES.indexOf(b)]?a:b);state[oldest]=2;}
+ // Old four-stop sessions and history snapshots keep their relative positions.
+ const legacy=input.levelsVersion!==2&&(Array.isArray(input.touched)||AXES.some(axis=>input[axis]>2));
+ const convert=value=>level(legacy?value*2/3:value);
+ const state={levelsVersion:2,...DEFAULT_LEVELS,cardIndex:input.cardIndex===1?1:0,guideStep:level(input.guideStep,0)};
+ state.income=Number.isFinite(input.income)?convert(input.income):Number.isFinite(input.reliability)?2-convert(input.reliability):1;
+ state.withdrawal=Number.isFinite(input.withdrawal)?convert(input.withdrawal):1;
+ // The history shell carries the shared 3×3 point between different variants.
+ if(Number.isFinite(input.risk))state.income=level(input.risk*2);
+ if(Number.isFinite(input.access))state.withdrawal=level((1-input.access)*2);
+ state.reliability=2-state.income;
  return state;
 }
 export function changeLevel(input,axis,target){
  if(!AXES.includes(axis))throw new Error('Unknown slider');
- const state=normalizeState(input);state[axis]=level(target,state[axis]);state.touched[AXES.indexOf(axis)]=Math.max(...state.touched)+1;
+ const state=normalizeState(input);state[axis]=level(target,state[axis]);
  let adjusted=null;
- if(AXES.every(key=>state[key]===3)){
-  adjusted=AXES.filter(key=>key!==axis).reduce((a,b)=>state.touched[AXES.indexOf(a)]<=state.touched[AXES.indexOf(b)]?a:b);
-  state[adjusted]=2;
- }
+ if(axis==='income'){state.reliability=2-state.income;adjusted='reliability';}
+ if(axis==='reliability'){state.income=2-state.reliability;adjusted='income';}
  return {state,adjusted};
 }
-export function pointToLevel(nativeX){return Math.max(0,Math.min(3,Math.round((nativeX-TICKS[0])/(TICKS[3]-TICKS[0])*3)));}
+export function pointToLevel(nativeX){return level((nativeX-TICKS[0])/(TICKS[2]-TICKS[0])*2);}
