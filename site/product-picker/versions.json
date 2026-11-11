@@ -61,7 +61,8 @@
     "note": "Экран по Figma 249:1303: оригинальные изображения продуктов, подсказка, drag по девяти точкам и переключение 1–2 карточек. Временная матрица для демо.",
     "file": "variants/v09.html",
     "hidden": false,
-    "menuOrder": 2
+    "menuOrder": 2,
+    "revision": "intro-ready-20261111"
   },
   {
     "id": "v10",
@@ -69,7 +70,8 @@
     "note": "Модульная PWA, общая оболочка, плавное перетаскивание, интерактивная установка и офлайн-кэш.",
     "file": "variants/v10-app/index.html",
     "hidden": false,
-    "menuOrder": 4
+    "menuOrder": 4,
+    "revision": "no-tooltip-20261111"
   },
   {
     "id": "v11",

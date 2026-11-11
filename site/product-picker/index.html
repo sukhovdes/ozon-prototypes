@@ -9,7 +9,7 @@
 <iframe id="prototype" title="Подбор продукта" src="versions/v01.html"></iframe>
 <button class="launcher" id="show-history" hidden aria-controls="history" aria-expanded="false">Варианты</button>
 <aside class="variants" id="history" aria-label="Варианты наполнения"><div class="panel-head"><span>Варианты</span><button class="hide" id="hide-history" aria-label="Свернуть варианты"><span class="hide-icon"><img src="../assets/imgVariantsChevron.svg" alt=""></span></button></div><nav id="version-list" aria-label="Выбор варианта"></nav></aside>
-<script src="history.js?v=named-menu-20261111"></script>
+<script src="history.js?v=intro-ready-20261111"></script>
 <script>
 
 'use strict';
@@ -17,9 +17,10 @@ const versions=window.PICKER_VERSIONS,visibleVersions=versions.filter(item=>!ite
 const frame=document.getElementById('prototype'),panel=document.getElementById('history'),launcher=document.getElementById('show-history');
 let activeVersion=null,revision=0,saved=null;
 function panelOpen(open){panel.hidden=!open;launcher.hidden=open;launcher.setAttribute('aria-expanded',String(open));}
+function variantURL(v){const url=new URL(v.file,location.href);if(v.revision)url.searchParams.set('v',v.revision);return url.href;}
 function capture(){try{const value=frame.contentWindow.pickerSnapshot?.();return value?{...saved,...value}:saved;}catch{return saved;}}
-frame.addEventListener('load',async()=>{const n=revision,doc=frame.contentDocument,v=versions.find(v=>v.id===activeVersion);if(!doc||!v||doc.URL!==new URL(v.file,location.href).href)return;const value=saved;const restore=()=>{if(n===revision&&frame.contentDocument===doc)frame.contentWindow.restorePicker?.(value);};restore();await doc.fonts?.ready;restore();frame.contentWindow.requestAnimationFrame(restore);});
-function selectVersion(id,push=true){const v=versions.find(v=>v.id===id)||latest;if(v.id===activeVersion)return;if(activeVersion)saved=capture();activeVersion=v.id;revision++;document.getElementById('version-list').innerHTML=visibleVersions.map(item=>`<button class="option ${item.id===v.id?'active':''}" data-version="${item.id}" aria-pressed="${item.id===v.id}">${item.title}</button>`).join('');frame.title='Подборщик: '+v.title;frame.src=v.file;document.documentElement.dataset.pickerVersion=v.id;window.dispatchEvent(new Event('picker-version-change'));if(push&&location.hash!=='#'+v.id)history.pushState(null,'','#'+v.id);}
+frame.addEventListener('load',async()=>{const n=revision,doc=frame.contentDocument,v=versions.find(v=>v.id===activeVersion);if(!doc||!v||doc.URL!==variantURL(v))return;const value=saved;const restore=()=>{if(n===revision&&frame.contentDocument===doc)frame.contentWindow.restorePicker?.(value);};restore();await doc.fonts?.ready;restore();frame.contentWindow.requestAnimationFrame(restore);});
+function selectVersion(id,push=true){const v=versions.find(v=>v.id===id)||latest;if(v.id===activeVersion)return;if(activeVersion)saved=capture();activeVersion=v.id;revision++;document.getElementById('version-list').innerHTML=visibleVersions.map(item=>`<button class="option ${item.id===v.id?'active':''}" data-version="${item.id}" aria-pressed="${item.id===v.id}">${item.title}</button>`).join('');frame.title='Подборщик: '+v.title;frame.src=variantURL(v);document.documentElement.dataset.pickerVersion=v.id;window.dispatchEvent(new Event('picker-version-change'));if(push&&location.hash!=='#'+v.id)history.pushState(null,'','#'+v.id);}
 window.addEventListener('popstate',()=>selectVersion(location.hash.slice(1),false));
 document.getElementById('version-list').addEventListener('click',e=>{const b=e.target.closest('[data-version]');if(b)selectVersion(b.dataset.version);});
 document.getElementById('hide-history').onclick=()=>panelOpen(false);launcher.onclick=()=>panelOpen(true);

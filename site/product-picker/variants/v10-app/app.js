@@ -12,14 +12,13 @@ let view=needsInstallGuide({ios,standalone:standalone(),skipped:readSession(SKIP
 let sheetReturnFocus=null,sheetKey=null,announcementTimer,pagerSignature='';
 const persist=()=>writeSession(STATE_KEY,state);
 const card=new ProductCard($('#product-card'),openProduct);
-const selector=new Selector($('#selector-field'),{onSelect:(row,col)=>{if(state.row===row&&state.col===col)return;state.row=row;state.col=col;state.cardIndex=0;renderChoice();persist();},onInteract:()=>{if(!state.coachSeen){state.coachSeen=true;$('#coach').hidden=true;persist();}}});
+const selector=new Selector($('#selector-field'),{onSelect:(row,col)=>{if(state.row===row&&state.col===col)return;state.row=row;state.col=col;state.cardIndex=0;renderChoice();persist();},onInteract:()=>{}});
 const savedStep=state.guideStep;
 const guide=new InstallGuide($('#install-view'),{onSkip:()=>{writeSession(SKIP_KEY,true);showView('main');},onStep:step=>{state.guideStep=step;persist();}});guide.setStep(savedStep);
 function renderChoice(){
  const ids=matches(state.row,state.col);state.cardIndex=Math.min(state.cardIndex,ids.length-1);const product=selectedProduct(state);card.show(product);selector.setCell(state.row,state.col);
  const signature=ids.join('|');if(signature!==pagerSignature){pagerSignature=signature;$('#pagination').replaceChildren();if(ids.length>1)ids.forEach((id,i)=>{const button=document.createElement('button');button.dataset.page=i;button.setAttribute('aria-label','Показать: '+PRODUCTS[id].name);const dot=document.createElement('i');dot.setAttribute('aria-hidden','true');button.append(dot);$('#pagination').append(button);});}
  $('#pagination').querySelectorAll('button').forEach((button,i)=>button.setAttribute('aria-current',String(i===state.cardIndex)));
- $('#coach').hidden=state.coachSeen||view!=='main';
  clearTimeout(announcementTimer);announcementTimer=setTimeout(()=>{$('#announcement').textContent=PRIORITIES[state.row]+'. '+ACCESS[state.col]+'. '+ids.map(id=>PRODUCTS[id].name).join(', ');},150);
 }
 function showView(next){
@@ -28,7 +27,6 @@ function showView(next){
  const panel=$('#'+view+'-view');if(!matchMedia('(prefers-reduced-motion:reduce)').matches)panel.animate([{opacity:.45},{opacity:1}],{duration:160});
 }
 $('#pagination').addEventListener('click',e=>{const button=e.target.closest('[data-page]');if(!button)return;state.cardIndex=Number(button.dataset.page);renderChoice();persist();});
-$('#close-coach').addEventListener('click',()=>{state.coachSeen=true;$('#coach').hidden=true;persist();});
 $('#back').addEventListener('click',()=>{if(!$('#sheet-mask').hidden){closeSheet();return;}if(view==='install'){if(!guide.previous()){writeSession(SKIP_KEY,true);showView('main');}return;}state.row=1;state.col=1;state.cardIndex=0;renderChoice();persist();});
 $('#help').addEventListener('click',openHelp);
 let swipe=null;$('#hero').addEventListener('pointerdown',e=>{if(e.target.closest('button'))return;swipe={x:e.clientX,y:e.clientY};try{e.currentTarget.setPointerCapture(e.pointerId);}catch{}});
@@ -40,12 +38,12 @@ function closeSheet(){if($('#sheet-mask').hidden)return;$('#sheet-mask').hidden=
 function paragraph(text,cls=''){const p=document.createElement('p');p.textContent=text;p.className=cls;$('#sheet-content').append(p);}
 function sheetButton(text,callback,primary=false){const button=document.createElement('button');button.className=primary?'primary-button':'text-button';button.textContent=text;button.addEventListener('click',callback);$('#sheet-content').append(button);}
 function openProduct(id){const product=PRODUCTS[id];openSheet(product.name);sheetKey=id;paragraph(product.terms,'terms');paragraph('Демонстрационные условия из макета. Оформление продукта в этом прототипе не выполняется.');sheetButton('Понятно',closeSheet,true);}
-function openHelp(){openSheet('Как работает подбор');sheetKey='help';paragraph('Выберите одну из девяти ячеек по двум шкалам: приоритет доходности и доступность денег. Можно нажать на ячейку или перетащить кружок.');paragraph('Сверху появятся один или два продукта. Переключайте их точками под карточкой или свайпом.');sheetButton('Показать подсказку на поле',()=>{closeSheet();state.coachSeen=false;showView('main');persist();},true);if(standalone())paragraph('Подборщик уже открыт как приложение, без панелей Safari.');else sheetButton('Как открыть на весь экран',()=>{closeSheet();guide.setStep(0);showView('install');});}
+function openHelp(){openSheet('Как работает подбор');sheetKey='help';paragraph('Выберите одну из девяти ячеек по двум шкалам: приоритет доходности и доступность денег. Можно нажать на ячейку или перетащить кружок.');paragraph('Сверху появятся один или два продукта. Переключайте их точками под карточкой или свайпом.');if(standalone())paragraph('Подборщик уже открыт как приложение, без панелей Safari.');else sheetButton('Как открыть на весь экран',()=>{closeSheet();guide.setStep(0);showView('install');});}
 $('#sheet-close').addEventListener('click',closeSheet);$('#sheet-mask').addEventListener('click',e=>{if(e.target===e.currentTarget)closeSheet();});
 document.addEventListener('pointerdown',()=>document.documentElement.classList.remove('keyboard'),{capture:true});
 document.addEventListener('keydown',e=>{
  document.documentElement.classList.add('keyboard');
- if(e.key==='Escape'){if(!$('#sheet-mask').hidden)closeSheet();else if(!state.coachSeen){state.coachSeen=true;$('#coach').hidden=true;persist();}}
+ if(e.key==='Escape'){if(!$('#sheet-mask').hidden)closeSheet();}
  if(e.key==='Tab'&&!$('#sheet-mask').hidden){const buttons=[...$('#sheet').querySelectorAll('button')],first=buttons[0],last=buttons.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}
 });
 for(const query of [standaloneQuery,fullscreenQuery])query.addEventListener('change',()=>{if(standalone())showView('main');});
