@@ -6,6 +6,7 @@
 .three-island .range-group{display:flex;flex-direction:column;align-items:stretch;gap:9px;width:100%}
 .three-island h2{padding:0 4px;font-size:18px;line-height:26px;font-weight:600}
 .range-endpoints{display:flex;justify-content:space-between;gap:8px;padding:0 4px;font-size:14px;line-height:20px;color:var(--secondary);white-space:nowrap}
+.range-endpoints span{max-width:50%;white-space:normal}.range-endpoints span:last-child{text-align:right}
 .three-app .pill-slider{width:100%;height:45px;position:relative;touch-action:none;cursor:ew-resize;border-radius:22.5px;outline:none;user-select:none}
 .keyboard .three-app .pill-slider:focus-visible{outline:2px solid #001a34;outline-offset:4px}
 .three-app .range-native{position:absolute;left:0;top:50%;margin-top:-22.5px;width:343px;height:45px;transform:scaleX(var(--rail-scale,1));transform-origin:0 50%;pointer-events:none}

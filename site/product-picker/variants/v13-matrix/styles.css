@@ -1,0 +1,9 @@
+.matrix-island{height:clamp(350px,49.4dvh,401px);min-height:350px;flex-shrink:0;position:relative;overflow:hidden;border-radius:24px;background:#fff;touch-action:pan-y}
+.matrix-canvas{position:absolute;left:50%;top:50%;width:375px;height:401px;transform:translate(-50%,-50%) scale(var(--matrix-scale,1));transform-origin:50% 50%}
+.grid-horizontal,.grid-vertical{position:absolute;left:0;top:0;pointer-events:none}.grid-vertical{transform:rotate(90deg);transform-origin:50% 50%}
+.matrix-axis{position:absolute;z-index:1;pointer-events:none;white-space:nowrap;font-size:calc(14px / var(--matrix-scale,1));line-height:calc(20px / var(--matrix-scale,1));font-weight:400;color:var(--secondary);text-align:center}
+.axis-top{top:16px;left:calc(50% - 3px);transform:translateX(-50%)}.axis-bottom{top:335px;left:calc(50% - 3px);transform:translateX(-50%)}
+.axis-left{left:26px;top:50%;transform:translate(-50%,-50%) rotate(90deg)}.axis-right{right:26px;top:calc(50% + .5px);transform:translate(50%,-50%) rotate(90deg)}
+.matrix-app .selector-field{width:327px;height:327px;left:187px;top:203px;z-index:2;transform:translate(-50%,-50%)}
+.matrix-app .system-home{background:#fff}
+@media(max-width:600px),(pointer:coarse){html.matrix-page{background:#fff}html.matrix-page body{background:#fff}.matrix-app{min-height:calc(656px + env(safe-area-inset-top) + env(safe-area-inset-bottom))}}

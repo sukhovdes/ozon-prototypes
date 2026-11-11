@@ -1,0 +1,19 @@
+{
+  "id": "/product-picker/three/",
+  "name": "Подбор продукта · Три шкалы",
+  "short_name": "Подбор · 3 шкалы",
+  "lang": "ru",
+  "start_url": "/product-picker/three/",
+  "scope": "/product-picker/three/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/product-picker/assets/v09-00-safecc1.png",
+      "sizes": "1080x1080",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

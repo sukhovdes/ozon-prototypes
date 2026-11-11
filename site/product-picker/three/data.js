@@ -11,5 +11,5 @@ export const MATRIX=[
  [['deposit','cfa'],['deposit','savings'],['daily','savings']],
  [['deposit'],['savings','deposit'],['deposit','savings']]
 ];
-export const PRIORITIES=['Максимум доходности','Баланс','Максимум надёжности'];
-export const ACCESS=['Защите от трат','По условиям продукта','Снимать когда угодно'];
+export const PRIORITIES=['Максимум дохода','Баланс','Максимум надежности'];
+export const ACCESS=['Вывести в конце срока','По условиям продукта','Вывести в любой момент'];

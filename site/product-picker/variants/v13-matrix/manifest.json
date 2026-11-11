@@ -1,0 +1,19 @@
+{
+  "id": "/product-picker/matrix/",
+  "name": "Подбор продукта · Сетка",
+  "short_name": "Подбор · сетка",
+  "lang": "ru",
+  "start_url": "/product-picker/matrix/",
+  "scope": "/product-picker/matrix/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/product-picker/assets/v09-00-safecc1.png",
+      "sizes": "1080x1080",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

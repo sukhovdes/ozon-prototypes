@@ -1,7 +1,7 @@
-const CACHE='ozon-picker-app-20261111-one-app';
+const CACHE='ozon-picker-app-20261111-copy-qr';
 const BASE='/product-picker/app/';
 const CORE=['index.html','sliders.html','grid.html','styles.css','app.js','data.js','core.js','components/selector.js','components/product-card.js','components/install-guide.js','components/onboarding.js','components/two-sliders.js'].map(file=>BASE+file);
-const ASSETS=['onest.woff2','v12-slider-track.svg','v09-01-stats.svg','v09-02-icmdisclosurebackfilled.svg','v09-03-icminfofilled.svg','v09-04-dots.svg','v09-05-mover.svg','v09-16-subtract.svg','v09-17-beak.svg','v09-18-icscrossfilled.svg','close.svg','install-share.svg','app-home.svg','v09-00-safecc1.png','v09-07-nakop2.png','v09-06-image22.png','v09-09-cfa4.png'].map(file=>'/product-picker/assets/'+file);
+const ASSETS=['qr-encoder-v1.js','qr-share-v1.js','onest.woff2','v12-slider-track.svg','v09-01-stats.svg','v09-02-icmdisclosurebackfilled.svg','v09-03-icminfofilled.svg','v09-04-dots.svg','v09-05-mover.svg','v09-16-subtract.svg','v09-17-beak.svg','v09-18-icscrossfilled.svg','close.svg','install-share.svg','app-home.svg','v09-00-safecc1.png','v09-07-nakop2.png','v09-06-image22.png','v09-09-cfa4.png'].map(file=>'/product-picker/assets/'+file);
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll([...CORE,...ASSETS,'/product-picker/manifest.json','/product-picker/manifest-sliders.json'])).then(()=>self.skipWaiting()));});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('ozon-picker-app-')&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim()));});
 self.addEventListener('fetch',event=>{
