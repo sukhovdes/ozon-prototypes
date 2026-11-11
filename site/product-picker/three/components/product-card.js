@@ -1,4 +1,4 @@
-import {PRODUCTS} from '../data.js?v=natural-spacing-20261111';
+import {PRODUCTS} from '../data.js?v=tops-cta-20261111';
 export class ProductCard{
  constructor(element,onOpen){
   this.element=element;this.views=new Map();this.active=null;this.button=element.querySelector('#product-action');this.animation=null;
@@ -23,6 +23,7 @@ export class ProductCard{
   next.view.hidden=false;if(!next.image.getAttribute('src'))next.image.src=product.image;
   if(first)next.view.style.transition='none';void next.view.offsetWidth;next.view.style.opacity='1';if(first)requestAnimationFrame(()=>next.view.style.removeProperty('transition'));
   this.syncLayout();
+  this.button.classList.toggle('investment-account',product.actionTone==='dark');
   this.button.dataset.product=product.id;this.button.setAttribute('aria-label',product.action+': '+product.name);
   if(this.button.textContent!==product.action){this.animation?.cancel();this.button.textContent=product.action;this.button.classList.toggle('invest',product.id==='cfa');if(!first&&!matchMedia('(prefers-reduced-motion:reduce)').matches)this.animation=this.button.animate([{opacity:.4},{opacity:1}],{duration:180});}
   this.element.dataset.product=product.id;

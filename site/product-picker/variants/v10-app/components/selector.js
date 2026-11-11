@@ -1,5 +1,5 @@
-import {cellFromPoint,cellCenter,clamp} from '../core.js?v=natural-spacing-20261111';
-import {PRIORITIES,ACCESS} from '../data.js?v=natural-spacing-20261111';
+import {cellFromPoint,cellCenter,clamp} from '../core.js?v=tops-cta-20261111';
+import {PRIORITIES,ACCESS} from '../data.js?v=tops-cta-20261111';
 export class Selector{
  constructor(field,{onSelect,onInteract}){
   this.field=field;this.thumb=field.querySelector('.selector-thumb');this.onSelect=onSelect;this.onInteract=onInteract;this.row=1;this.col=1;this.pointer=null;this.frame=0;

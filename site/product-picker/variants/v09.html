@@ -17,6 +17,8 @@ html.mobile{background:#fff;--mobile-top-height:clamp(300px,calc((100dvh - env(s
 
 /* Natural title height: 8px to the caption; the shared action follows the copy. */
 .product-card{height:calc(var(--card-height) + 28px)}.product-view,.product-card-view{height:auto;grid-template-rows:56px auto}.product-copy{height:auto}.product-copy h2{min-height:0;display:block}.product-action{top:calc(56px + var(--card-gap) * 2 + var(--product-copy-height,56px))}
+
+.primary-button.investment-account,.open-product.investment-account{background:#001a34}
 </style><script defer src="/product-picker/assets/qr-encoder-v1.js"></script><script defer src="/product-picker/assets/qr-share-v1.js"></script></head><body>
 <main class="device-stage"><div class="device" aria-label="Подбор продукта, мобильный экран 375 на 812" data-node-id="249:1342"><div id="app" class="app">
 <section class="top-island" data-node-id="249:1343">
@@ -53,7 +55,7 @@ html.mobile{background:#fff;--mobile-top-height:clamp(300px,calc((100dvh - env(s
 <script type="module">
 'use strict';
 import {IntroSequence} from '/product-picker/assets/intro-sequence-v1.js';
-import {PRODUCTS,PRODUCT_MATRIX} from '/product-picker/assets/product-matrix-v2.js?v=natural-spacing-20261111';
+import {PRODUCTS,PRODUCT_MATRIX} from '/product-picker/assets/product-matrix-v2.js?v=tops-cta-20261111';
 const $=selector=>document.querySelector(selector);
 const state={row:1,col:1,cardIndex:0,tutorialDismissed:false};
 const positions=['Слева сверху','По центру сверху','Справа сверху','Слева по центру','В центре','Справа по центру','Слева снизу','По центру снизу','Справа снизу'];
@@ -117,6 +119,7 @@ class ProductCard{
  updateAction(product){
   const button=this.button;
   // The action target follows the product even when its visible label is unchanged.
+  button.classList.toggle('investment-account',product.actionTone==='dark');
   button.dataset.product=product.id;
   button.setAttribute('aria-label',product.action+': '+product.name);
   if(button.textContent===product.action)return;

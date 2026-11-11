@@ -1,9 +1,9 @@
-import {PRODUCTS} from './data.js?v=natural-spacing-20261111';
-import {matches,needsInstallGuide,readSession,writeSession} from './core.js?v=natural-spacing-20261111';
-import {AXES,TITLES,normalizeState} from './model.js?v=natural-spacing-20261111';
-import {ThreeSliders} from './components/three-sliders.js?v=natural-spacing-20261111';
-import {ProductCard} from './components/product-card.js?v=natural-spacing-20261111';
-import {InstallGuide} from './components/install-guide.js?v=natural-spacing-20261111';
+import {PRODUCTS} from './data.js?v=tops-cta-20261111';
+import {matches,needsInstallGuide,readSession,writeSession} from './core.js?v=tops-cta-20261111';
+import {AXES,TITLES,normalizeState} from './model.js?v=tops-cta-20261111';
+import {ThreeSliders} from './components/three-sliders.js?v=tops-cta-20261111';
+import {ProductCard} from './components/product-card.js?v=tops-cta-20261111';
+import {InstallGuide} from './components/install-guide.js?v=tops-cta-20261111';
 const $=s=>document.querySelector(s),STATE_KEY='ozon-picker-three-state-v1',SKIP_KEY='ozon-picker-three-install-skip';
 const state=normalizeState(readSession(STATE_KEY,{}));
 const ios=/iPhone|iPad|iPod/i.test(navigator.userAgent)||(/Mac/.test(navigator.platform)&&navigator.maxTouchPoints>1);

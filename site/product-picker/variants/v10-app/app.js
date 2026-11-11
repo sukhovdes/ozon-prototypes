@@ -1,8 +1,8 @@
-import {PRODUCTS,ASSETS,PRIORITIES,ACCESS} from './data.js?v=natural-spacing-20261111';
-import {normalizeState,matches,selectedProduct,needsInstallGuide,readSession,writeSession} from './core.js?v=natural-spacing-20261111';
-import {Selector} from './components/selector.js?v=natural-spacing-20261111';
-import {ProductCard} from './components/product-card.js?v=natural-spacing-20261111';
-import {InstallGuide} from './components/install-guide.js?v=natural-spacing-20261111';
+import {PRODUCTS,ASSETS,PRIORITIES,ACCESS} from './data.js?v=tops-cta-20261111';
+import {normalizeState,matches,selectedProduct,needsInstallGuide,readSession,writeSession} from './core.js?v=tops-cta-20261111';
+import {Selector} from './components/selector.js?v=tops-cta-20261111';
+import {ProductCard} from './components/product-card.js?v=tops-cta-20261111';
+import {InstallGuide} from './components/install-guide.js?v=tops-cta-20261111';
 const $=s=>document.querySelector(s),STATE_KEY='ozon-picker-webapp-v2',SKIP_KEY='ozon-picker-webapp-install-skip';
 const state=normalizeState(readSession(STATE_KEY,{}));
 const ios=/iPhone|iPad|iPod/i.test(navigator.userAgent)||(/Mac/.test(navigator.platform)&&navigator.maxTouchPoints>1);

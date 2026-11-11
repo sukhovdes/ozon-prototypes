@@ -1,5 +1,5 @@
-import {clamp,normalizeState} from '../core.js?v=natural-spacing-20261111';
-import {PRIORITIES,ACCESS} from '../data.js?v=natural-spacing-20261111';
+import {clamp,normalizeState} from '../core.js?v=tops-cta-20261111';
+import {PRIORITIES,ACCESS} from '../data.js?v=tops-cta-20261111';
 
 // Native geometry from Figma 273:1656–1658 (343 × 60 rail).
 const WIDTH=343,MIN_FILL=60,TRAVEL=WIDTH-MIN_FILL,GRIP_INSET=25.95;

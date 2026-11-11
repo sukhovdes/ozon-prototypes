@@ -17,4 +17,5 @@ test('the new top-row choices use their Figma icons without crops or invented TO
  assert.ok(PRODUCTS.travel.image.endsWith('/travel-savings.png'));assert.equal(PRODUCTS.travel.crop,null);
  assert.ok(PRODUCTS.tops.image.endsWith('/tops-fund.svg'));assert.equal(PRODUCTS.tops.crop,null);
  assert.equal(PRODUCTS.tops.terms,'Здесь будет описание');assert.equal(PRODUCTS.tops.termsMuted,true);
+ assert.equal(PRODUCTS.tops.action,'Открыть инвестиционный счет');assert.equal(PRODUCTS.tops.actionTone,'dark');
 });

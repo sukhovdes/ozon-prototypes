@@ -1,6 +1,6 @@
 'use strict';
 import {IntroSequence} from '/product-picker/assets/intro-sequence-v1.js';
-import {PRODUCTS,productsAt,EMPTY_TITLE} from './data.js?v=natural-spacing-20261111';
+import {PRODUCTS,productsAt,EMPTY_TITLE} from './data.js?v=tops-cta-20261111';
 const $=selector=>document.querySelector(selector);
 const state={row:1,col:1,cardIndex:0,tutorialDismissed:false};
 const positions=['Слева сверху','По центру сверху','Справа сверху','Слева по центру','В центре','Справа по центру','Слева снизу','По центру снизу','Справа снизу'];
@@ -64,6 +64,7 @@ class ProductCard{
  updateAction(product){
   const button=this.button;
   // The action target follows the product even when its visible label is unchanged.
+  button.classList.toggle('investment-account',product.actionTone==='dark');
   button.dataset.product=product.id;
   button.setAttribute('aria-label',product.action+': '+product.name);
   const first=button.hidden;button.hidden=false;

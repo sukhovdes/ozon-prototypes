@@ -1,4 +1,4 @@
-import {MATRIX,PRODUCTS} from './data.js?v=natural-spacing-20261111';
+import {MATRIX,PRODUCTS} from './data.js?v=tops-cta-20261111';
 export const clamp=(n,min=0,max=1)=>Math.min(max,Math.max(min,Number.isFinite(n)?n:min));
 export function cellFromPoint(x,y){return {row:Math.min(2,Math.floor(clamp(y)*3)),col:Math.min(2,Math.floor(clamp(x)*3))};}
 export function cellCenter(row,col){return {x:(clamp(col,0,2)+.5)/3,y:(clamp(row,0,2)+.5)/3};}

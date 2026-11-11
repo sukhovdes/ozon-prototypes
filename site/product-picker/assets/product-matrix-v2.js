@@ -8,7 +8,7 @@ export const PRODUCTS={
  deposit:{id:'deposit',name:'Вклад на 1–12 месяцев',terms:'13–13,7% годовых',action:'Открыть',image:ASSETS+'v09-00-safecc1.png',crop:{left:-8.33,top:-8.33,size:116.67},description:'Вклады от 1 до 12 месяцев. Диапазон ставки взят из предоставленной матрицы.'},
  daily:{id:'daily',name:'Ежедневный доход',terms:'12% годовых',action:'Открыть',image:ASSETS+'v09-06-image22.png',crop:{left:-6.5,top:-4.26,size:112.77},description:'ЕЖДВ из предоставленной матрицы.'},
  travel:{id:'travel',name:'Копилка на Путешествие',terms:'7% годовых при оплате на Ozon Travel',action:'Открыть',image:ASSETS+'travel-savings.png',crop:null,description:'Копилка на Путешествие. 7% годовых при оплате на Ozon Travel — условия из макета.'},
- tops:{id:'tops',kind:'fund',name:'Фонд российских акций TOPS',terms:'Здесь будет описание',termsMuted:true,action:'Открыть',image:ASSETS+'tops-fund.svg',crop:null,description:'Фонд российских акций TOPS. Описание в макете пока не заполнено.'},
+ tops:{id:'tops',kind:'fund',name:'Фонд российских акций TOPS',terms:'Здесь будет описание',termsMuted:true,action:'Открыть инвестиционный счет',actionTone:'dark',image:ASSETS+'tops-fund.svg',crop:null,description:'Фонд российских акций TOPS. Описание в макете пока не заполнено.'},
  daily2:{id:'daily2',name:'Ежедневный доход 2.0',terms:'14% годовых · 2027',action:'Открыть',image:ASSETS+'v09-06-image22.png',crop:{left:-6.5,top:-4.26,size:112.77},description:'ЕЖДВ 2.0. Пока недоступен; в матрице указан 2027 год.',status:'2027'}
 };
 // Rows: Y3 → Y1 (more income → less risk). Columns: X1 → X3.
