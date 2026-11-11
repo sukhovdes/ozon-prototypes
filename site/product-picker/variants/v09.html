@@ -14,6 +14,9 @@ html.mobile{background:#fff;--mobile-top-height:clamp(300px,calc((100dvh - env(s
 .mobile body{display:block;background:#fff;overflow-x:hidden;overflow-y:auto;overscroll-behavior-y:none}.mobile .device-stage{width:100%;height:auto;min-height:100dvh}.mobile .device{width:100%;height:100dvh;min-height:calc(612px + env(safe-area-inset-top) + env(safe-area-inset-bottom));position:relative;inset:auto;transform:none}.mobile .app{height:100%;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}.mobile header{height:52px}.mobile .status,.mobile .home-indicator{display:none}.mobile .top-island{height:var(--mobile-top-height)}.mobile .product-preview{height:auto;min-height:0;flex:1}.mobile .control{height:auto;flex:1;min-height:304px}.mobile .labels{right:16px;width:auto;bottom:16px}.mobile .field{left:calc(50% - 89px);top:calc(50% - 89px)}.mobile .spotlight-shade{display:none}.mobile .onboarding:before{content:"";position:absolute;left:0;right:0;top:0;height:calc(env(safe-area-inset-top) + var(--mobile-top-height) + 8px);background:rgba(7,7,7,.24)}.mobile .tooltip{left:16px;top:auto;bottom:calc(100% - env(safe-area-inset-top) - var(--mobile-top-height) + 8px);width:calc(100% - 32px)}.mobile .tooltip p{white-space:normal}.mobile .tooltip-beak{left:calc(50% - 32px)}.mobile .sheet{max-height:calc(100dvh - env(safe-area-inset-top) - 24px);padding-bottom:max(24px,env(safe-area-inset-bottom))}
 .install-open body{overflow:hidden}.install-gate{position:fixed;inset:0;z-index:20;background:#fff;overflow-y:auto;overscroll-behavior:contain;padding:calc(20px + env(safe-area-inset-top)) 20px calc(12px + env(safe-area-inset-bottom));display:flex;outline:none}.install-gate-inner{width:100%;max-width:400px;margin:auto}.install-emblem{width:56px;height:56px;margin:0 auto 20px;display:grid;place-items:center;background:rgba(0,150,255,.08);border-radius:16px;color:var(--blue)}.install-share-icon{display:inline-block;width:24px;height:24px;flex-shrink:0;background:currentColor;mask:url('/product-picker/assets/install-share.svg') center/24px 24px no-repeat;-webkit-mask:url('/product-picker/assets/install-share.svg') center/24px 24px no-repeat}.install-gate h1{font-size:28px;line-height:32px;font-weight:700;text-align:center;letter-spacing:-.4px}.install-description{max-width:340px;margin:12px auto 24px;text-align:center;font-size:14px;line-height:20px;color:var(--secondary)}.install-steps{margin:0;padding:16px;list-style:none;display:grid;gap:16px;border-radius:20px;background:var(--floor)}.install-steps li{display:grid;grid-template-columns:24px minmax(0,1fr);gap:12px;align-items:start}.install-step-number{width:24px;height:24px;display:grid;place-items:center;border-radius:8px;background:#fff;color:var(--blue);font-size:13px;line-height:20px;font-weight:600}.install-steps strong{display:flex;align-items:center;gap:4px;font-size:14px;line-height:20px;font-weight:600}.inline-share{color:var(--blue);margin-top:-2px}.install-steps p{font-size:12px;line-height:18px;color:var(--secondary);margin-top:2px}.install-launch-note{margin:16px 12px 4px;text-align:center;font-size:12px;line-height:18px;color:var(--secondary)}.install-skip{display:block;width:100%;min-height:44px;padding:12px;background:transparent;color:var(--blue);font-size:14px;line-height:20px;font-weight:600;border-radius:12px}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* Stable slots for one- and two-line product names. */
+.product-card{height:calc(var(--card-height) + 28px)}.product-view,.product-card-view{height:calc(140px + var(--card-gap));grid-template-rows:56px 84px}.product-copy{height:84px}.product-copy h2{min-height:56px;display:flex;align-items:center;justify-content:center}.product-action{top:calc(140px + var(--card-gap) * 2)}
 </style><script defer src="/product-picker/assets/qr-encoder-v1.js"></script><script defer src="/product-picker/assets/qr-share-v1.js"></script></head><body>
 <main class="device-stage"><div class="device" aria-label="Подбор продукта, мобильный экран 375 на 812" data-node-id="249:1342"><div id="app" class="app">
 <section class="top-island" data-node-id="249:1343">
@@ -50,19 +53,7 @@ html.mobile{background:#fff;--mobile-top-height:clamp(300px,calc((100dvh - env(s
 <script type="module">
 'use strict';
 import {IntroSequence} from '/product-picker/assets/intro-sequence-v1.js';
-const PRODUCTS={
- daily:{id:'daily',name:'Ежедневный доход',terms:'XX% годовых, выплаты ежедневно',action:'Открыть',image:'/product-picker/assets/v09-06-image22.png',crop:{left:-6.5,top:-4.26,size:112.77},description:'Карточка продукта «Ежедневный доход» из макета.'},
- savings:{id:'savings',name:'Накопительный счёт',terms:'XX% годовых, выплаты раз в месяц',action:'Открыть',image:'/product-picker/assets/v09-07-nakop2.png',crop:{left:-8.56,top:-7.63,size:113.33},description:'Карточка накопительного счёта из макета.'},
- deposit:{id:'deposit',name:'Вклад: 24 мес',terms:'16% годовых, без пополнений',action:'Открыть',image:'/product-picker/assets/v09-00-safecc1.png',crop:{left:-8.33,top:-8.33,size:116.67},description:'Пример вклада на 24 месяца из макета.'},
- cfa:{id:'cfa',name:'Цифровые активы',terms:'до XX% годовых',action:'К покупке',image:'/product-picker/assets/v09-09-cfa4.png',crop:null,description:'Карточка цифровых активов из макета.'}
-};
-// Temporary demo matrix, intentionally unrelated to financial suitability.
-// Replace only these nine lists when the final product matrix is supplied.
-const PRODUCT_MATRIX=[
- [['cfa'],['cfa','daily'],['daily','cfa']],
- [['deposit','cfa'],['savings','daily'],['daily','savings']],
- [['deposit'],['savings','deposit'],['deposit','savings']]
-];
+import {PRODUCTS,PRODUCT_MATRIX} from '/product-picker/assets/product-matrix-v2.js?v=products-20261111';
 const $=selector=>document.querySelector(selector);
 const state={row:1,col:1,cardIndex:0,tutorialDismissed:false};
 const positions=['Слева сверху','По центру сверху','Справа сверху','Слева по центру','В центре','Справа по центру','Слева снизу','По центру снизу','Справа снизу'];
@@ -113,7 +104,7 @@ class ProductCard{
    const view=template.content.firstElementChild.cloneNode(true),image=view.querySelector('[data-slot=icon]');
    view.dataset.product=product.id;view.inert=true;
    view.querySelector('[data-slot=title]').textContent=product.name;
-   view.querySelector('[data-slot=terms]').textContent=product.terms;
+   view.querySelector('[data-slot=terms]').textContent=product.terms;view.querySelector('[data-slot=terms]').style.opacity=product.termsMuted?'.4':'1';
    if(product.crop){const crop=product.crop;image.style.left=crop.left+'%';image.style.top=crop.top+'%';image.style.width=crop.size+'%';image.style.height=crop.size+'%';}
    else view.querySelector('[data-slot=image]').classList.add('show-whole-image');
    element.append(view);

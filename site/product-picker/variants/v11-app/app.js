@@ -1,9 +1,9 @@
-import {PRODUCTS,ASSETS,PRIORITIES,ACCESS} from './data.js?v=snap-cta-20261111';
-import {normalizeState,matches,selectedProduct,needsInstallGuide,readSession,writeSession} from './core.js?v=snap-cta-20261111';
-import {Selector} from './components/selector.js?v=snap-cta-20261111';
-import {ProductCard} from './components/product-card.js?v=snap-cta-20261111';
-import {InstallGuide} from './components/install-guide.js?v=snap-cta-20261111';
-import {Onboarding} from './components/onboarding.js?v=snap-cta-20261111';
+import {PRODUCTS,ASSETS,PRIORITIES,ACCESS} from './data.js?v=products-20261111';
+import {normalizeState,matches,selectedProduct,needsInstallGuide,readSession,writeSession} from './core.js?v=products-20261111';
+import {Selector} from './components/selector.js?v=products-20261111';
+import {ProductCard} from './components/product-card.js?v=products-20261111';
+import {InstallGuide} from './components/install-guide.js?v=products-20261111';
+import {Onboarding} from './components/onboarding.js?v=products-20261111';
 const $=s=>document.querySelector(s),STATE_KEY='ozon-picker-webapp-v2',SKIP_KEY='ozon-picker-webapp-install-skip';
 const state=normalizeState(readSession(STATE_KEY,{}));
 // Each app launch starts with the coach; navigating within the app keeps it dismissed.

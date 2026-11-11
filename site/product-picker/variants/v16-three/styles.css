@@ -15,3 +15,5 @@
 .three-app .range-grip{position:absolute;left:calc(100% - 27px);top:14px;width:4px;height:18px;border-radius:32px;background:linear-gradient(#fff,rgba(255,255,255,.6))}.three-app .dragging .range-fill{transition:none}
 .three-app .system-home{background:#fff}
 @media(max-width:600px),(pointer:coarse){html.three-page,html.three-page body{background:#fff}.three-app{min-height:calc(737px + env(safe-area-inset-top) + env(safe-area-inset-bottom))}}
+
+.three-app .product-card{height:180px}.three-app .product-view{height:128px;grid-template-rows:44px 76px;gap:8px}.three-app .product-copy{height:76px}.three-app .product-copy h2{font-size:22px;line-height:24px;min-height:48px}.three-app .product-action{top:140px}

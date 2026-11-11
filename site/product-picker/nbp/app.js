@@ -1,6 +1,6 @@
 'use strict';
 import {IntroSequence} from '/product-picker/assets/intro-sequence-v1.js';
-import {PRODUCTS,productsAt,EMPTY_TITLE} from './data.js?v=snap-cta-20261111';
+import {PRODUCTS,productsAt,EMPTY_TITLE} from './data.js?v=products-20261111';
 const $=selector=>document.querySelector(selector);
 const state={row:1,col:1,cardIndex:0,tutorialDismissed:false};
 const positions=['Слева сверху','По центру сверху','Справа сверху','Слева по центру','В центре','Справа по центру','Слева снизу','По центру снизу','Справа снизу'];
@@ -51,7 +51,7 @@ class ProductCard{
    const view=template.content.firstElementChild.cloneNode(true),image=view.querySelector('[data-slot=icon]');
    view.dataset.product=product.id;view.inert=true;
    view.querySelector('[data-slot=title]').textContent=product.name;
-   view.querySelector('[data-slot=terms]').textContent=product.terms;
+   view.querySelector('[data-slot=terms]').textContent=product.terms;view.querySelector('[data-slot=terms]').style.opacity=product.termsMuted?'.4':'1';
    if(product.crop){const crop=product.crop;image.style.left=crop.left+'%';image.style.top=crop.top+'%';image.style.width=crop.size+'%';image.style.height=crop.size+'%';}
    else view.querySelector('[data-slot=image]').classList.add('show-whole-image');
    element.append(view);
@@ -147,7 +147,7 @@ function openSheet(id){
  dismissTutorial();returnFocus=document.activeElement;sheetProduct=id||'help';const p=PRODUCTS[id];$('#sheet-title').textContent=p?p.name:'Как работает подбор';const body=$('#sheet-body');body.replaceChildren();
  const paragraph=(text,className)=>{const el=document.createElement('p');el.textContent=text;if(className)el.className=className;body.append(el);};
  if(p){paragraph(p.terms,'terms');paragraph(p.description);paragraph('Это демонстрационный прототип. Оформление продукта здесь не выполняется; ставки и условия взяты из предоставленной матрицы.');}
- else{paragraph('Перемещайте ползунок между девятью точками или нажимайте на поле. Сверху появится один или два продукта из матрицы; в пустой ячейке будет сообщение.');paragraph('Если продуктов два, переключайте их точками под карточкой или свайпом по карточке. Ползунок также работает со стрелками клавиатуры.');const replay=document.createElement('button');replay.textContent='Показать подсказку снова';replay.addEventListener('click',()=>{closeSheet();state.tutorialDismissed=false;render();});body.append(replay);}
+ else{paragraph('Перемещайте ползунок между девятью точками или нажимайте на поле. Сверху появится один или два продукта из матрицы.');paragraph('Если продуктов два, переключайте их точками под карточкой или свайпом по карточке. Ползунок также работает со стрелками клавиатуры.');const replay=document.createElement('button');replay.textContent='Показать подсказку снова';replay.addEventListener('click',()=>{closeSheet();state.tutorialDismissed=false;render();});body.append(replay);}
  $('#app').inert=true;$('#sheet-backdrop').hidden=false;$('#sheet').scrollTop=0;$('#close-sheet').focus({preventScroll:true});
 }
 $('#help').addEventListener('click',()=>openSheet());

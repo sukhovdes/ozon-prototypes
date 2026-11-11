@@ -1,11 +1,11 @@
-import {PRODUCTS} from '../data.js?v=snap-cta-20261111';
+import {PRODUCTS} from '../data.js?v=products-20261111';
 export class ProductCard{
  constructor(element,onOpen){
   this.element=element;this.views=new Map();this.active=null;this.button=element.querySelector('#product-action');this.animation=null;
   const template=document.querySelector('#product-template');
   for(const product of Object.values(PRODUCTS)){
    const view=template.content.firstElementChild.cloneNode(true),image=view.querySelector('img');view.dataset.product=product.id;view.inert=true;
-   view.querySelector('h2').textContent=product.name;view.querySelector('p').textContent=product.terms;
+   view.querySelector('h2').textContent=product.name;view.querySelector('p').textContent=product.terms;view.querySelector('p').style.opacity=product.termsMuted?'.4':'1';
    if(product.crop){const [left,top,size]=product.crop;image.style.cssText='left:'+left+'%;top:'+top+'%;width:'+size+'%;height:'+size+'%';}else view.querySelector('.product-art').classList.add('whole');
    image.addEventListener('load',()=>image.classList.add('loaded'));element.append(view);this.views.set(product.id,{view,image,timer:null});
   }

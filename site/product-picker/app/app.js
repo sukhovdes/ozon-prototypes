@@ -1,10 +1,10 @@
-import {PRODUCTS,ASSETS,PRIORITIES,ACCESS} from './data.js?v=snap-cta-20261111';
-import {normalizeState,matches,selectedProduct,needsInstallGuide,readSession,writeSession} from './core.js?v=snap-cta-20261111';
-import {Selector} from './components/selector.js?v=snap-cta-20261111';
-import {ProductCard} from './components/product-card.js?v=snap-cta-20261111';
-import {InstallGuide} from './components/install-guide.js?v=snap-cta-20261111';
-import {Onboarding} from './components/onboarding.js?v=snap-cta-20261111';
-import {TwoSliders,DEFAULT_PROGRESS} from './components/two-sliders.js?v=snap-cta-20261111';
+import {PRODUCTS,ASSETS,PRIORITIES,ACCESS} from './data.js?v=products-20261111';
+import {normalizeState,matches,selectedProduct,needsInstallGuide,readSession,writeSession} from './core.js?v=products-20261111';
+import {Selector} from './components/selector.js?v=products-20261111';
+import {ProductCard} from './components/product-card.js?v=products-20261111';
+import {InstallGuide} from './components/install-guide.js?v=products-20261111';
+import {Onboarding} from './components/onboarding.js?v=products-20261111';
+import {TwoSliders,DEFAULT_PROGRESS} from './components/two-sliders.js?v=products-20261111';
 const $=s=>document.querySelector(s),slidersMode=$('#shell').dataset.picker==='sliders',STATE_KEY=slidersMode?'ozon-picker-sliders-v1':'ozon-picker-webapp-v2',SKIP_KEY='ozon-picker-webapp-install-skip';
 const rememberedState=readSession(STATE_KEY,{}),state=normalizeState(rememberedState);
 for(const key of ['sliderRisk','sliderAccess'])if(Number.isFinite(rememberedState[key]))state[key]=rememberedState[key];

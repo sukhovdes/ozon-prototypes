@@ -41,3 +41,6 @@
 .sliders-mode .system-home{background:#fff}
 @media(max-width:600px),(pointer:coarse){.sliders-mode{min-height:calc(650px + env(safe-area-inset-top) + env(safe-area-inset-bottom))}html.sliders-page{background:#fff}html.sliders-page body{background:#fff}.slider-section:after{content:'';position:absolute;left:0;right:0;top:100%;height:env(safe-area-inset-bottom,0px);background:#fff;pointer-events:none}}
 @media(max-width:350px){.range-heading p{font-size:14px}}
+
+/* Stable slots for one- and two-line product names. */
+.product-card{height:calc(var(--card-height) + 28px)}.product-view,.product-card-view{height:calc(140px + var(--card-gap));grid-template-rows:56px 84px}.product-copy{height:84px}.product-copy h2{min-height:56px;display:flex;align-items:center;justify-content:center}.product-action{top:calc(140px + var(--card-gap) * 2)}
