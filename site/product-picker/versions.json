@@ -121,5 +121,14 @@
     "file": "variants/v16-three/index.html",
     "hidden": false,
     "menuOrder": 3
+  },
+  {
+    "id": "v17",
+    "title": "Точки · матрица",
+    "note": "Зелёные продукты NBP, включая пунктирные будущие; две карусели ЦФА и пустая инвестиционная ячейка.",
+    "app": "nbp",
+    "hidden": false,
+    "menuOrder": 2.5,
+    "file": "versions/v17-nbp/index.html"
   }
 ]
