@@ -1,4 +1,4 @@
-import {PRODUCTS} from '../data.js?v=products-20261111';
+import {PRODUCTS} from '../data.js?v=natural-spacing-20261111';
 export class ProductCard{
  constructor(element,onOpen){
   this.element=element;this.views=new Map();this.active=null;this.button=element.querySelector('#product-action');this.animation=null;
@@ -9,6 +9,8 @@ export class ProductCard{
    if(product.crop){const [left,top,size]=product.crop;image.style.cssText='left:'+left+'%;top:'+top+'%;width:'+size+'%;height:'+size+'%';}else view.querySelector('.product-art').classList.add('whole');
    image.addEventListener('load',()=>image.classList.add('loaded'));element.append(view);this.views.set(product.id,{view,image,timer:null});
   }
+  this.syncLayout=()=>{const active=element.querySelector('.product-view[aria-hidden="false"],.product-card-view[aria-hidden="false"]');if(active)element.style.setProperty('--product-copy-height',active.querySelector('.product-copy').offsetHeight+'px');};
+  this.layoutObserver=new ResizeObserver(this.syncLayout);for(const entry of this.views.values())this.layoutObserver.observe(entry.view.querySelector('.product-copy'));
   this.button.addEventListener('click',()=>onOpen(this.button.dataset.product));
  }
  show(product){
@@ -20,6 +22,7 @@ export class ProductCard{
   }
   next.view.hidden=false;if(!next.image.getAttribute('src'))next.image.src=product.image;
   if(first)next.view.style.transition='none';void next.view.offsetWidth;next.view.style.opacity='1';if(first)requestAnimationFrame(()=>next.view.style.removeProperty('transition'));
+  this.syncLayout();
   this.button.dataset.product=product.id;this.button.setAttribute('aria-label',product.action+': '+product.name);
   if(this.button.textContent!==product.action){this.animation?.cancel();this.button.textContent=product.action;this.button.classList.toggle('invest',product.id==='cfa');if(!first&&!matchMedia('(prefers-reduced-motion:reduce)').matches)this.animation=this.button.animate([{opacity:.4},{opacity:1}],{duration:180});}
   this.element.dataset.product=product.id;

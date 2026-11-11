@@ -1,4 +1,4 @@
-import {TICKS,changeLevel,pointToLevel,normalizeState} from '../model.js?v=products-20261111';
+import {TICKS,changeLevel,pointToLevel,normalizeState} from '../model.js?v=natural-spacing-20261111';
 export class ThreeSliders{
  constructor(section,{state,onChange}){
   this.state=normalizeState(state);this.onChange=onChange;this.pointer=null;

@@ -1,6 +1,6 @@
 'use strict';
 import {IntroSequence} from '/product-picker/assets/intro-sequence-v1.js';
-import {PRODUCTS,productsAt,EMPTY_TITLE} from './data.js?v=products-20261111';
+import {PRODUCTS,productsAt,EMPTY_TITLE} from './data.js?v=natural-spacing-20261111';
 const $=selector=>document.querySelector(selector);
 const state={row:1,col:1,cardIndex:0,tutorialDismissed:false};
 const positions=['Слева сверху','По центру сверху','Справа сверху','Слева по центру','В центре','Справа по центру','Слева снизу','По центру снизу','Справа снизу'];
@@ -57,6 +57,8 @@ class ProductCard{
    element.append(view);
    this.views.set(product.id,{view,image,hideTimer:null});
   }
+  this.syncLayout=()=>{const active=element.querySelector('.product-view[aria-hidden="false"],.product-card-view[aria-hidden="false"]');if(active)element.style.setProperty('--product-copy-height',active.querySelector('.product-copy').offsetHeight+'px');};
+  this.layoutObserver=new ResizeObserver(this.syncLayout);for(const entry of this.views.values())this.layoutObserver.observe(entry.view.querySelector('.product-copy'));
   this.button.addEventListener('click',()=>openSheet(this.button.dataset.product));
  }
  updateAction(product){
@@ -98,6 +100,7 @@ class ProductCard{
   next.view.hidden=false;next.view.inert=false;next.view.setAttribute('aria-hidden','false');
   const slots={image:'product-image',icon:'hero-icon',title:'hero-name',terms:'product-note'};
   for(const [slot,id]of Object.entries(slots))next.view.querySelector('[data-slot='+slot+']').id=id;
+  this.syncLayout();
   this.updateAction(PRODUCTS[id]);
   if(!previous)next.view.style.transition='none';
   // Commit the transparent frame before starting the opacity transition.
