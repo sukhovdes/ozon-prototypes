@@ -1,4 +1,4 @@
-import {PRODUCTS} from '../data.js';
+import {PRODUCTS} from '../data.js?v=snap-cta-20261111';
 export class ProductCard{
  constructor(element,onOpen){
   this.element=element;this.views=new Map();this.active=null;this.button=element.querySelector('#product-action');this.animation=null;

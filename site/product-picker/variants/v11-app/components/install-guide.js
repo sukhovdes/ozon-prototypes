@@ -1,4 +1,4 @@
-import {ASSETS} from '../data.js';
+import {ASSETS} from '../data.js?v=snap-cta-20261111';
 const STEPS=[
  {title:'Нажмите «Поделиться»',text:'Откройте меню Safari и выберите «Поделиться». В некоторых видах Safari эта кнопка находится на нижней панели.',icon:'install-share.svg'},
  {title:'Выберите «На экран Домой»',text:'Прокрутите список действий вниз. Нужный пункт называется «На экран Домой».',icon:'app-home.svg'},

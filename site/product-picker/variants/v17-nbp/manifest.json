@@ -1,0 +1,12 @@
+{
+  "id": "/product-picker/nbp/",
+  "name": "Подбор продукта · Матрица NBP",
+  "short_name": "Подбор · матрица",
+  "lang": "ru",
+  "start_url": "/product-picker/nbp/",
+  "scope": "/product-picker/nbp/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [{"src":"/product-picker/assets/v09-00-safecc1.png","sizes":"1080x1080","type":"image/png","purpose":"any"}]
+}

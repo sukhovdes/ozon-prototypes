@@ -1,4 +1,4 @@
-import {TICKS,LEVEL_NAMES,changeLevel,pointToLevel,normalizeState} from '../model.js';
+import {TICKS,LEVEL_NAMES,changeLevel,pointToLevel,normalizeState} from '../model.js?v=snap-cta-20261111';
 export class ThreeSliders{
  constructor(section,{state,onChange}){
   this.state=normalizeState(state);this.onChange=onChange;this.pointer=null;

@@ -1,5 +1,5 @@
-import {cellFromPoint,cellCenter,clamp} from '../core.js';
-import {PRIORITIES,ACCESS} from '../data.js';
+import {cellFromPoint,cellCenter,clamp} from '../core.js?v=snap-cta-20261111';
+import {PRIORITIES,ACCESS} from '../data.js?v=snap-cta-20261111';
 export class Selector{
  constructor(field,{onSelect,onInteract}){
   this.field=field;this.thumb=field.querySelector('.selector-thumb');this.onSelect=onSelect;this.onInteract=onInteract;this.row=1;this.col=1;this.pointer=null;this.frame=0;

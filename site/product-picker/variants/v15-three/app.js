@@ -1,9 +1,9 @@
-import {PRODUCTS} from './data.js';
-import {matches,needsInstallGuide,readSession,writeSession} from './core.js';
-import {AXES,TITLES,normalizeState} from './model.js';
-import {ThreeSliders} from './components/three-sliders.js';
-import {ProductCard} from './components/product-card.js';
-import {InstallGuide} from './components/install-guide.js';
+import {PRODUCTS} from './data.js?v=snap-cta-20261111';
+import {matches,needsInstallGuide,readSession,writeSession} from './core.js?v=snap-cta-20261111';
+import {AXES,TITLES,normalizeState} from './model.js?v=snap-cta-20261111';
+import {ThreeSliders} from './components/three-sliders.js?v=snap-cta-20261111';
+import {ProductCard} from './components/product-card.js?v=snap-cta-20261111';
+import {InstallGuide} from './components/install-guide.js?v=snap-cta-20261111';
 const $=s=>document.querySelector(s),STATE_KEY='ozon-picker-three-state-v1',SKIP_KEY='ozon-picker-three-install-skip';
 const state=normalizeState(readSession(STATE_KEY,{}));
 const ios=/iPhone|iPad|iPod/i.test(navigator.userAgent)||(/Mac/.test(navigator.platform)&&navigator.maxTouchPoints>1);

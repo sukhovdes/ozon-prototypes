@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#ffffff"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Подбор · матрица"><meta name="apple-mobile-web-app-status-bar-style" content="default"><link rel="manifest" href="./manifest.json"><link rel="apple-touch-icon" href="/product-picker/assets/v09-00-safecc1.png"><title>Подбор по матрице · Ozon Банк</title><link rel="stylesheet" href="./styles.css"><script defer src="/product-picker/assets/qr-encoder-v1.js"></script><script defer src="/product-picker/assets/qr-share-v2.js"></script></head><body>
+<main class="device-stage"><div class="device" aria-label="Подбор продукта, мобильный экран 375 на 812" data-node-id="249:1342"><div id="app" class="app">
+<section class="top-island" data-node-id="249:1343">
+<header><div class="status"><span>8:00</span><img src="/product-picker/assets/v09-01-stats.svg" width="66.66" height="11.334" alt="Сеть, Wi-Fi, батарея"></div><div class="navigation"><button class="icon-button" id="reset" aria-label="Вернуться к началу"><img src="/product-picker/assets/v09-02-icmdisclosurebackfilled.svg" width="24" height="24" alt=""></button><h1>Подбор продукта</h1><button class="icon-button" id="help" aria-label="Как работает подбор"><img src="/product-picker/assets/v09-03-icminfofilled.svg" width="24" height="24" alt=""></button></div></header>
+<section class="product-preview" id="product-preview" aria-label="Подобранные продукты" data-node-id="249:1345"><div class="product-card" id="product-card"><div class="product-action"><button class="open-product" id="selected-product" aria-haspopup="dialog" hidden></button></div></div><div class="empty-state" id="empty-state" hidden><h2>Пока нет подходящих продуктов</h2><p>Попробуйте другую точку</p></div></section>
+<template id="product-card-template"><article class="product-card-view" hidden aria-hidden="true"><div class="product-image" data-slot="image"><img data-slot="icon" alt="" draggable="false" decoding="async"></div><div class="product-copy"><h2 data-slot="title"></h2><p data-slot="terms"></p></div></article></template>
+<nav class="product-pagination" id="product-pagination" aria-label="Переключить подобранный продукт"></nav>
+</section>
+<section class="control" id="control" aria-label="Выбор условий на поле 3 на 3" data-node-id="249:1355">
+<div class="glass" aria-hidden="true"></div>
+<div class="labels" aria-hidden="true"><p class="label top-label">Максимум дохода</p><p class="label bottom-label">Максимум надежности</p><p class="label left-label">Вывести в конце срока</p><p class="label right-label">Вывести в любой момент</p></div>
+<div class="field" id="field"><img class="dots" src="/product-picker/assets/v09-04-dots.svg" width="178" height="178" alt=""><div class="grid-targets" id="grid-targets"></div><button class="mover" id="mover" aria-label="Выбранная точка: центр. Двигайте стрелками" aria-describedby="field-instructions"><img src="/product-picker/assets/v09-05-mover.svg" width="60" height="60" alt=""></button></div>
+<p class="sr-only" id="field-instructions">Двигайте ползунок мышью или пальцем, нажмите на точку или используйте стрелки клавиатуры. Сверху появится один или два продукта из матрицы. В пустой ячейке будет сообщение. Клавиши 1–9 выбирают точки слева направо, сверху вниз.</p>
+</section>
+<div class="home-indicator" aria-hidden="true"></div>
+</div>
+<div class="onboarding" id="onboarding" hidden><img class="spotlight-shade" src="/product-picker/assets/v09-16-subtract.svg" width="375" height="1044" alt=""><div class="tooltip" role="status"><p>Двигай ползунок, чтобы подобрать</p><img class="tooltip-beak" src="/product-picker/assets/v09-17-beak.svg" width="64" height="7" alt=""><button class="tooltip-close" id="dismiss-onboarding" aria-label="Закрыть подсказку"><img src="/product-picker/assets/v09-18-icscrossfilled.svg" width="16" height="16" alt=""></button></div></div>
+<div class="sheet-backdrop" id="sheet-backdrop" hidden><section class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" tabindex="-1"><div class="sheet-handle" aria-hidden="true"></div><div class="sheet-head"><h2 id="sheet-title"></h2><button class="sheet-close" id="close-sheet" aria-label="Закрыть"><span aria-hidden="true">×</span></button></div><div id="sheet-body" class="sheet-body"></div><button class="sheet-done" id="sheet-done">Понятно</button></section></div>
+<div class="sr-only" id="announcement" aria-live="polite" aria-atomic="true"></div>
+</div></main>
+<section class="install-gate" id="install-gate" aria-labelledby="install-title" tabindex="-1" hidden>
+<div class="install-gate-inner">
+<div class="install-emblem" aria-hidden="true"><span class="install-share-icon"></span></div>
+<h1 id="install-title">Открывайте<br>как приложение</h1>
+<p class="install-description">Добавьте подборщик на экран «Домой» — он откроется без панелей Safari.</p>
+<ol class="install-steps">
+<li><span class="install-step-number" aria-hidden="true">1</span><div><strong>Нажмите «Поделиться» <span class="install-share-icon inline-share" aria-hidden="true"></span></strong><p>В меню или на нижней панели Safari</p></div></li>
+<li><span class="install-step-number" aria-hidden="true">2</span><div><strong>Выберите «На экран Домой»</strong><p>Прокрутите список действий вниз</p></div></li>
+<li><span class="install-step-number" aria-hidden="true">3</span><div><strong>Нажмите «Добавить»</strong><p>«Открывать как веб-приложение» должно быть включено, если есть такой переключатель</p></div></li>
+</ol>
+<p class="install-launch-note">После добавления откройте подборщик с иконки на экране «Домой».</p>
+<button class="install-skip" id="skip-install">Продолжить в браузере</button>
+</div></section>
+<script type="module" src="./app.js?v=snap-cta-20261111"></script></body></html>

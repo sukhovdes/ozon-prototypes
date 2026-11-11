@@ -1,6 +1,6 @@
 'use strict';
 import {IntroSequence} from '/product-picker/assets/intro-sequence-v1.js';
-import {PRODUCTS,productsAt,EMPTY_TITLE} from './data.js';
+import {PRODUCTS,productsAt,EMPTY_TITLE} from './data.js?v=snap-cta-20261111';
 const $=selector=>document.querySelector(selector);
 const state={row:1,col:1,cardIndex:0,tutorialDismissed:false};
 const positions=['Слева сверху','По центру сверху','Справа сверху','Слева по центру','В центре','Справа по центру','Слева снизу','По центру снизу','Справа снизу'];
