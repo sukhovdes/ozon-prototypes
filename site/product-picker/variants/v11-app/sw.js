@@ -1,4 +1,4 @@
-const CACHE='ozon-picker-app-20261111-bottom-fill';
+const CACHE='ozon-picker-app-20261111-round32';
 const BASE='/product-picker/app/';
 const CORE=['index.html','styles.css','app.js','data.js','core.js','components/selector.js','components/product-card.js','components/install-guide.js','components/onboarding.js'].map(file=>BASE+file);
 const ASSETS=['onest.woff2','v09-01-stats.svg','v09-02-icmdisclosurebackfilled.svg','v09-03-icminfofilled.svg','v09-04-dots.svg','v09-05-mover.svg','v09-16-subtract.svg','v09-17-beak.svg','v09-18-icscrossfilled.svg','close.svg','install-share.svg','app-home.svg','v09-00-safecc1.png','v09-07-nakop2.png','v09-06-image22.png','v09-09-cfa4.png'].map(file=>'/product-picker/assets/'+file);

@@ -17,3 +17,6 @@
 .product-card{height:calc(var(--card-height) + 28px)}.product-view,.product-card-view{height:auto;grid-template-rows:56px auto}.product-copy{height:auto}.product-copy h2{min-height:0;display:block}.product-action{top:calc(56px + var(--card-gap) * 2 + var(--product-copy-height,56px))}
 
 .primary-button.investment-account,.open-product.investment-account{background:#001a34}
+
+/* Desktop phone frame; physical mobile viewport stays edge to edge. */
+.app-shell,.device{border-radius:32px;overflow:hidden}.mobile .device{border-radius:0}@media(max-width:600px),(pointer:coarse){.app-shell{border-radius:0}}

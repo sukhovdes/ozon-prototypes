@@ -5,7 +5,7 @@
     "note": "Выбор риска и доступности денег на поле, три ближайших продукта, объяснение выбора, закреплённый результат.",
     "file": "variants/v01.html",
     "hidden": true,
-    "revision": "tops-cta-20261111"
+    "revision": "round32-20261111"
   },
   {
     "id": "v02",
@@ -13,7 +13,7 @@
     "note": "Четыре точки-ориентира, градиент от контрола, меньше элементов и выбор регулярности выплат. Периодичность влияет на подбор.",
     "file": "variants/v02.html",
     "hidden": true,
-    "revision": "tops-cta-20261111"
+    "revision": "round32-20261111"
   },
   {
     "id": "v03",
@@ -21,7 +21,7 @@
     "note": "16 узлов с привязкой контрола, навбар и чипсы Figma 117:1121 / 117:1104, белый экран и область настройки #F5F7FA.",
     "file": "variants/v03.html",
     "hidden": true,
-    "revision": "tops-cta-20261111"
+    "revision": "round32-20261111"
   },
   {
     "id": "v04",
@@ -29,7 +29,7 @@
     "note": "Три отдельных вопроса: риск, доступ к деньгам и выплаты. Крупный ползунок с четырьмя уровнями, кнопками плюс/минус и пояснением. Подборка с редактированием настроек.",
     "file": "variants/v04.html",
     "hidden": true,
-    "revision": "tops-cta-20261111"
+    "revision": "round32-20261111"
   },
   {
     "id": "v05",
@@ -37,7 +37,7 @@
     "note": "Доходность и срок доступа к деньгам на одном экране. Подобранный продукт с иконкой и крупной демонстрационной ставкой сверху. Без пошаговой навигации, CTA и плюс/минус. Выплаты компактными чипсами.",
     "file": "variants/v05.html",
     "hidden": true,
-    "revision": "tops-cta-20261111"
+    "revision": "round32-20261111"
   },
   {
     "id": "v06",
@@ -45,7 +45,7 @@
     "note": "Словесные уровни доходности вместо процентов. Одна типографика для всей строки ставки, плоские шкалы без теней и лишних подложек, убраны повторы значений.",
     "file": "variants/v06.html",
     "hidden": true,
-    "revision": "tops-cta-20261111"
+    "revision": "round32-20261111"
   },
   {
     "id": "v07",
@@ -53,7 +53,7 @@
     "note": "Два вертикальных колеса по референсу: доходность и доступ к деньгам. Крупные выбранные значения по центру, приглушённые соседние. Прокрутка, drag, нажатия и клавиатура; продукт и ставка обновляются сразу.",
     "file": "variants/v07.html",
     "hidden": true,
-    "revision": "tops-cta-20261111"
+    "revision": "round32-20261111"
   },
   {
     "id": "v08",
@@ -61,7 +61,7 @@
     "note": "Верхняя карточка по Figma 163:1481: ставка, условия, иконка справа, Открыть и пагинация. В барабанах по три видимые строки, без серой подложки. Выбор и переключение продуктов сохраняются между версиями.",
     "file": "variants/v08.html",
     "hidden": true,
-    "revision": "tops-cta-20261111"
+    "revision": "round32-20261111"
   },
   {
     "id": "v09",
@@ -70,7 +70,7 @@
     "file": "variants/v09.html",
     "hidden": false,
     "menuOrder": 1,
-    "revision": "onboarding-nudge-20261111"
+    "revision": "round32-20261111"
   },
   {
     "id": "v10",
@@ -79,7 +79,7 @@
     "file": "variants/v10-app/index.html",
     "hidden": false,
     "menuOrder": 3,
-    "revision": "tops-cta-20261111"
+    "revision": "round32-20261111"
   },
   {
     "id": "v11",
@@ -87,7 +87,7 @@
     "note": "Исходный Spotlight и точки из макета, плавное появление и скрытие",
     "file": "variants/v11-app/index.html",
     "hidden": true,
-    "revision": "tops-cta-20261111"
+    "revision": "round32-20261111"
   },
   {
     "id": "v12",
@@ -96,7 +96,7 @@
     "file": "variants/v12-app/index.html",
     "entry": "sliders.html",
     "hidden": true,
-    "revision": "tops-cta-20261111"
+    "revision": "round32-20261111"
   },
   {
     "id": "v13",
@@ -105,7 +105,7 @@
     "app": "matrix",
     "file": "variants/v13-matrix/index.html",
     "hidden": true,
-    "revision": "tops-cta-20261111"
+    "revision": "round32-20261111"
   },
   {
     "id": "v14",
@@ -115,7 +115,7 @@
     "file": "variants/v14-matrix/index.html",
     "hidden": false,
     "menuOrder": 2,
-    "revision": "tops-cta-20261111"
+    "revision": "round32-20261111"
   },
   {
     "id": "v15",
@@ -124,7 +124,7 @@
     "app": "three",
     "file": "variants/v15-three/index.html",
     "hidden": true,
-    "revision": "tops-cta-20261111"
+    "revision": "round32-20261111"
   },
   {
     "id": "v16",
@@ -134,7 +134,7 @@
     "file": "variants/v16-three/index.html",
     "hidden": false,
     "menuOrder": 4,
-    "revision": "tops-cta-20261111"
+    "revision": "round32-20261111"
   },
   {
     "id": "v17",
@@ -144,6 +144,6 @@
     "hidden": true,
     "menuOrder": 2.5,
     "file": "variants/v17-nbp/index.html",
-    "revision": "onboarding-nudge-20261111"
+    "revision": "round32-20261111"
   }
 ]

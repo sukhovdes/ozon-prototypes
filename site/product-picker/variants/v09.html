@@ -19,6 +19,9 @@ html.mobile{background:#fff;--mobile-top-height:clamp(300px,calc((100dvh - env(s
 .product-card{height:calc(var(--card-height) + 28px)}.product-view,.product-card-view{height:auto;grid-template-rows:56px auto}.product-copy{height:auto}.product-copy h2{min-height:0;display:block}.product-action{top:calc(56px + var(--card-gap) * 2 + var(--product-copy-height,56px))}
 
 .primary-button.investment-account,.open-product.investment-account{background:#001a34}
+
+/* Desktop phone frame; physical mobile viewport stays edge to edge. */
+.app-shell,.device{border-radius:32px;overflow:hidden}.mobile .device{border-radius:0}@media(max-width:600px),(pointer:coarse){.app-shell{border-radius:0}}
 </style><script defer src="/product-picker/assets/qr-encoder-v1.js"></script><script defer src="/product-picker/assets/qr-share-v1.js"></script></head><body>
 <main class="device-stage"><div class="device" aria-label="Подбор продукта, мобильный экран 375 на 812" data-node-id="249:1342"><div id="app" class="app">
 <section class="top-island" data-node-id="249:1343">
