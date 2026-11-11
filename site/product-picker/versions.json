@@ -69,7 +69,7 @@
     "note": "Экран по Figma 249:1303: оригинальные изображения продуктов, подсказка, drag по девяти точкам и переключение 1–2 карточек. Временная матрица для демо.",
     "file": "variants/v09.html",
     "hidden": false,
-    "menuOrder": 2,
+    "menuOrder": 1,
     "revision": "natural-spacing-20261111"
   },
   {
@@ -114,7 +114,7 @@
     "app": "matrix",
     "file": "variants/v14-matrix/index.html",
     "hidden": false,
-    "menuOrder": 1,
+    "menuOrder": 2,
     "revision": "natural-spacing-20261111"
   },
   {
@@ -141,7 +141,7 @@
     "title": "Точки · матрица",
     "note": "Зелёные продукты NBP, включая пунктирные будущие; две карусели ЦФА и пустая инвестиционная ячейка.",
     "app": "nbp",
-    "hidden": false,
+    "hidden": true,
     "menuOrder": 2.5,
     "file": "variants/v17-nbp/index.html",
     "revision": "natural-spacing-20261111"
