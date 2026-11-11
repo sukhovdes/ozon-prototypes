@@ -1,5 +1,5 @@
 'use strict';
-import {IntroSequence} from '/product-picker/assets/intro-sequence-v1.js';
+import {IntroSequence} from '/product-picker/assets/intro-sequence-v1.js?v=onboarding-nudge-20261111';
 import {PRODUCTS,productsAt,EMPTY_TITLE} from './data.js?v=tops-cta-20261111';
 const $=selector=>document.querySelector(selector);
 const state={row:1,col:1,cardIndex:0,tutorialDismissed:false};
@@ -112,7 +112,7 @@ class ProductCard{
  }
 }
 const productCard=new ProductCard($('#product-card'),PRODUCTS);
-tutorialSequence=new IntroSequence({element:$('#onboarding'),shouldShow:()=>!state.tutorialDismissed&&installGate.hidden,interfaceReady});
+tutorialSequence=new IntroSequence({element:$('#onboarding'),motionTarget:mover.querySelector('img'),shouldShow:()=>!state.tutorialDismissed&&installGate.hidden,interfaceReady});
 function dismissTutorial(){state.tutorialDismissed=true;tutorialSequence.cancel();}
 function render(){
  const ids=matches();state.cardIndex=clamp(state.cardIndex,ids.length-1);const p=PRODUCTS[ids[state.cardIndex]]||null;

@@ -70,7 +70,7 @@
     "file": "variants/v09.html",
     "hidden": false,
     "menuOrder": 1,
-    "revision": "tops-cta-20261111"
+    "revision": "onboarding-nudge-20261111"
   },
   {
     "id": "v10",
@@ -144,6 +144,6 @@
     "hidden": true,
     "menuOrder": 2.5,
     "file": "variants/v17-nbp/index.html",
-    "revision": "tops-cta-20261111"
+    "revision": "onboarding-nudge-20261111"
   }
 ]
