@@ -57,24 +57,26 @@
   },
   {
     "id": "v09",
-    "title": "Поле 3×3 · макет Figma",
+    "title": "Точки 3x3",
     "note": "Экран по Figma 249:1303: оригинальные изображения продуктов, подсказка, drag по девяти точкам и переключение 1–2 карточек. Временная матрица для демо.",
     "file": "variants/v09.html",
-    "hidden": true
+    "hidden": false,
+    "menuOrder": 2
   },
   {
     "id": "v10",
-    "title": "Веб-приложение · 3×3",
+    "title": "Квадрат",
     "note": "Модульная PWA, общая оболочка, плавное перетаскивание, интерактивная установка и офлайн-кэш.",
     "file": "variants/v10-app/index.html",
-    "hidden": false
+    "hidden": false,
+    "menuOrder": 4
   },
   {
     "id": "v11",
     "title": "Онбординг · Figma",
     "note": "Исходный Spotlight и точки из макета, плавное появление и скрытие",
     "file": "variants/v11-app/index.html",
-    "hidden": false
+    "hidden": true
   },
   {
     "id": "v12",
@@ -94,11 +96,12 @@
   },
   {
     "id": "v14",
-    "title": "Подсветка линий · PWA",
+    "title": "Сетка",
     "note": "Локальный синий свет на пунктире рядом с бегунком, фон без изменений",
     "app": "matrix",
     "file": "variants/v14-matrix/index.html",
-    "hidden": false
+    "hidden": false,
+    "menuOrder": 1
   },
   {
     "id": "v15",
@@ -110,10 +113,11 @@
   },
   {
     "id": "v16",
-    "title": "Три шкалы · связанные параметры",
+    "title": "Шкалы",
     "note": "Три отметки; доходность и надежность связаны обратно, вывод денег независим.",
     "app": "three",
     "file": "variants/v16-three/index.html",
-    "hidden": false
+    "hidden": false,
+    "menuOrder": 3
   }
 ]
