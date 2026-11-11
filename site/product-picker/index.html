@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Подбор продукта · варианты</title>
+<style>
+@font-face{font-family:Onest;src:url('assets/onest.woff2') format('woff2');font-weight:100 900;font-display:swap}*{box-sizing:border-box}body{margin:0;background:#e8ebf0;font-family:Onest,Arial,sans-serif}button{font:inherit;cursor:pointer;border:0;-webkit-tap-highlight-color:transparent}button:focus-visible{outline:2px solid #005bff;outline-offset:2px}iframe{display:block;width:100%;height:100dvh;border:0;background:#e8ebf0}.variants{position:fixed;z-index:10;top:16px;left:max(12px,calc(50% - 402px));width:190px;padding:6px 4px;background:rgba(0,48,120,.04);border:0;border-radius:12px;box-shadow:none}.variants[hidden],.launcher[hidden]{display:none}.panel-head{display:flex;align-items:center;justify-content:space-between;padding:4px 6px 6px 8px;color:#8994a3;font-size:11px;line-height:16px;font-weight:400}.hide{display:grid;place-items:center;width:22px;height:22px;padding:0;background:rgba(0,48,120,.04);border-radius:5px}.hide-icon{position:relative;width:12px;height:12px;opacity:.3;transform:rotate(180deg)}.hide-icon img{position:absolute;left:4.5px;top:3px}.option{width:100%;text-align:left;display:block;padding:9px 8px;border-radius:8px;background:transparent;color:#7b8797;font-size:12px;line-height:17px;font-weight:400}.option:hover:not(.active){background:rgba(255,255,255,.35)}.option.active{background:#fff;color:#7b8797}.launcher{position:fixed;top:16px;left:max(12px,calc(50% - 402px));z-index:11;font-size:11px;line-height:16px;color:#7b8797;border:1px solid #e0e5eb;background:#fffffff0;border-radius:9px;padding:9px 12px;box-shadow:0 3px 12px #001a3408}@media(max-width:819px){.variants{left:12px;top:12px;width:190px;background:#f5f7fa}.launcher{top:auto;left:12px;bottom:132px}}
+</style></head>
+<body>
+<iframe id="prototype" title="Подбор продукта" src="versions/v01.html"></iframe>
+<button class="launcher" id="show-history" hidden aria-controls="history" aria-expanded="false">Варианты</button>
+<aside class="variants" id="history" aria-label="Варианты наполнения"><div class="panel-head"><span>Варианты</span><button class="hide" id="hide-history" aria-label="Свернуть варианты"><span class="hide-icon"><img src="../assets/imgVariantsChevron.svg" alt=""></span></button></div><nav id="version-list" aria-label="Выбор варианта"></nav></aside>
+<script src="history.js"></script>
+<script>
+
+'use strict';
+const versions=window.PICKER_VERSIONS,latest=versions[versions.length-1];
+const frame=document.getElementById('prototype'),panel=document.getElementById('history'),launcher=document.getElementById('show-history');
+let activeVersion=null,revision=0,saved=null;
+function panelOpen(open){panel.hidden=!open;launcher.hidden=open;launcher.setAttribute('aria-expanded',String(open));}
+function capture(){try{const value=frame.contentWindow.pickerSnapshot?.();return value?{...saved,...value}:saved;}catch{return saved;}}
+frame.addEventListener('load',async()=>{const n=revision,doc=frame.contentDocument,v=versions.find(v=>v.id===activeVersion);if(!doc||!v||doc.URL!==new URL(v.file,location.href).href)return;const value=saved;const restore=()=>{if(n===revision&&frame.contentDocument===doc)frame.contentWindow.restorePicker?.(value);};restore();await doc.fonts?.ready;restore();frame.contentWindow.requestAnimationFrame(restore);});
+function selectVersion(id,push=true){const v=versions.find(v=>v.id===id)||latest;if(v.id===activeVersion)return;if(activeVersion)saved=capture();activeVersion=v.id;revision++;document.getElementById('version-list').innerHTML=versions.map((item,i)=>`<button class="option ${item.id===v.id?'active':''}" data-version="${item.id}" aria-pressed="${item.id===v.id}">${i+1}. ${item.title}</button>`).join('');frame.title='Подборщик: '+v.title;frame.src=v.file;if(push&&location.hash!=='#'+v.id)history.pushState(null,'','#'+v.id);}
+window.addEventListener('popstate',()=>selectVersion(location.hash.slice(1),false));
+document.getElementById('version-list').addEventListener('click',e=>{const b=e.target.closest('[data-version]');if(b)selectVersion(b.dataset.version);});
+document.getElementById('hide-history').onclick=()=>panelOpen(false);launcher.onclick=()=>panelOpen(true);
+panelOpen(innerWidth>=820);selectVersion(location.hash.slice(1)||latest.id,false);
+</script></body></html>

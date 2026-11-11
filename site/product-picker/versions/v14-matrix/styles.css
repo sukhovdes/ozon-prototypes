@@ -1,0 +1,15 @@
+.matrix-island{height:clamp(350px,49.4dvh,401px);min-height:350px;flex-shrink:0;position:relative;overflow:hidden;border-radius:24px;background:#fff;touch-action:pan-y}
+.matrix-canvas{position:absolute;left:50%;top:50%;width:375px;height:401px;transform:translate(-50%,-50%) scale(var(--matrix-scale,1));transform-origin:50% 50%}
+.grid-horizontal,.grid-vertical{position:absolute;left:0;top:0;pointer-events:none}.grid-vertical{transform:rotate(90deg);transform-origin:50% 50%}
+.grid-tint{position:absolute;left:0;top:0;width:375px;height:406px;pointer-events:none;z-index:0;mask-repeat:no-repeat;mask-size:375px 406px;mask-mode:alpha;-webkit-mask-repeat:no-repeat;-webkit-mask-size:375px 406px}
+.grid-tint-horizontal{mask-image:url('./assets/grid-horizontal.svg');-webkit-mask-image:url('./assets/grid-horizontal.svg')}
+.grid-tint-vertical{mask-image:url('./assets/grid-vertical.svg');-webkit-mask-image:url('./assets/grid-vertical.svg');transform:rotate(90deg);transform-origin:50% 50%}
+.grid-tint:before{content:'';position:absolute;left:0;top:0;width:230px;height:230px;background:radial-gradient(circle,rgba(0,91,255,.85) 0%,rgba(0,91,255,.5) 45%,rgba(0,91,255,0) 100%);transform:translate3d(calc(var(--glow-x,187px) - 115px),calc(var(--glow-y,203px) - 115px),0);transition:transform 160ms cubic-bezier(.2,.8,.2,1);will-change:transform}
+.grid-tint-vertical:before{transform:translate3d(calc(var(--glow-v-x,187.5px) - 115px),calc(var(--glow-v-y,203.5px) - 115px),0)}
+.matrix-canvas.is-dragging .grid-tint:before{transition:none}
+.matrix-axis{position:absolute;z-index:1;pointer-events:none;white-space:nowrap;font-size:calc(14px / var(--matrix-scale,1));line-height:calc(20px / var(--matrix-scale,1));font-weight:400;color:var(--secondary);text-align:center}
+.axis-top{top:16px;left:calc(50% - 3px);transform:translateX(-50%)}.axis-bottom{top:335px;left:calc(50% - 3px);transform:translateX(-50%)}
+.axis-left{left:26px;top:50%;transform:translate(-50%,-50%) rotate(90deg)}.axis-right{right:26px;top:calc(50% + .5px);transform:translate(50%,-50%) rotate(90deg)}
+.matrix-app .selector-field{width:327px;height:327px;left:187px;top:203px;z-index:2;transform:translate(-50%,-50%)}
+.matrix-app .system-home{background:#fff}
+@media(max-width:600px),(pointer:coarse){html.matrix-page{background:#fff}html.matrix-page body{background:#fff}.matrix-app{min-height:calc(656px + env(safe-area-inset-top) + env(safe-area-inset-bottom))}}

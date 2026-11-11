@@ -1,0 +1,19 @@
+{
+  "id": "/product-picker/",
+  "name": "Подбор продукта · Ozon Банк",
+  "short_name": "Подбор",
+  "lang": "ru",
+  "start_url": "/product-picker/app/",
+  "scope": "/product-picker/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/product-picker/assets/v09-00-safecc1.png",
+      "sizes": "1080x1080",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

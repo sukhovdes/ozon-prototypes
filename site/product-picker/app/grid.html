@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#ffffff"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Подбор"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="/product-picker/manifest.json"><link rel="apple-touch-icon" href="/product-picker/assets/v09-00-safecc1.png"><link rel="stylesheet" href="./styles.css"><title>Подбор продукта · Ozon Банк</title>
+</head><body>
+<main class="app-shell" id="shell" aria-label="Подбор продукта" data-release="webapp-20261111-one-app">
+<div class="system-status" id="system-status" aria-hidden="true"><span>8:00</span><img src="/product-picker/assets/v09-01-stats.svg" width="66.66" height="11.334" alt=""></div>
+<header class="navbar" id="navbar"><button class="icon-button" id="back" aria-label="Сбросить выбор"><img src="/product-picker/assets/v09-02-icmdisclosurebackfilled.svg" width="24" height="24" alt=""></button><h1>Подбор продукта</h1><button class="icon-button" id="help" aria-label="Помощь"><img src="/product-picker/assets/v09-03-icminfofilled.svg" width="24" height="24" alt=""></button></header>
+<div class="screens" id="screens">
+<section class="screen main-view" id="main-view" aria-label="Подбор продуктов" hidden>
+<section class="product-region" aria-label="Подобранные продукты"><div class="hero" id="hero"><div class="product-card" id="product-card"><div class="product-action"><button id="product-action" class="primary-button" aria-haspopup="dialog"></button></div></div></div><nav class="pagination" id="pagination" aria-label="Выбрать продукт"></nav></section>
+<section class="selector-section" id="selector-section" aria-labelledby="selector-title"><h2 id="selector-title" class="sr-only">Выбор условий на поле 3×3</h2><p class="axis top-axis" aria-hidden="true">Максимум дохода</p><p class="axis bottom-axis" aria-hidden="true">Максимум надежности</p><p class="axis left-axis" aria-hidden="true">Вывести в конце срока</p><p class="axis right-axis" aria-hidden="true">Вывести в любой момент</p>
+<div class="selector-field" id="selector-field"><img class="selector-dots" src="/product-picker/assets/v09-04-dots.svg" width="178" height="178" alt="" draggable="false"><div class="selector-grid"></div><button class="selector-thumb" id="selector-thumb" aria-describedby="selector-instructions"><img src="/product-picker/assets/v09-05-mover.svg" width="60" height="60" alt="" draggable="false"></button></div>
+<p class="sr-only" id="selector-instructions">Двигайте ползунок мышью или пальцем, нажмите на точку или используйте стрелки клавиатуры. Сверху появится один или два продукта.</p>
+<aside class="coach" id="coach" aria-label="Подсказка по подбору" hidden><p>Двигай ползунок, чтобы подобрать</p><img class="coach-beak" src="/product-picker/assets/v09-17-beak.svg" width="64" height="7" alt=""><button id="close-coach" aria-label="Закрыть подсказку"><img src="/product-picker/assets/v09-18-icscrossfilled.svg" width="16" height="16" alt=""></button></aside>
+</section></section>
+<section class="screen install-view" id="install-view" aria-labelledby="install-heading" hidden>
+<div class="install-body"><h2 id="install-heading">Откройте как приложение</h2><p class="install-intro">Без адресной строки и нижней панели Safari. Добавьте подборщик на экран «Домой».</p>
+<nav class="install-progress" aria-label="Шаги установки"><button data-install-step="0" aria-current="true"><b>1</b> Поделиться</button><button data-install-step="1" aria-current="false"><b>2</b> На экран</button><button data-install-step="2" aria-current="false"><b>3</b> Добавить</button></nav>
+<article class="install-step-card" aria-live="polite"><div class="install-symbol"><span class="asset-icon" id="install-step-icon"></span></div><h3 id="install-step-title"></h3><p id="install-step-text"></p></article>
+<p class="install-note">Эти действия выполняются в меню Safari. После добавления запускайте подборщик с иконки.</p></div>
+<div class="install-footer"><button class="primary-button" id="install-next">Следующий шаг</button><button class="text-button" id="install-skip">Продолжить в браузере</button></div>
+</section></div>
+<div class="onboarding-shade" aria-hidden="true"><img src="/product-picker/assets/v09-16-subtract.svg" width="375" height="1044" alt=""></div>
+<div class="system-home" aria-hidden="true"></div>
+<div class="sheet-mask" id="sheet-mask" hidden><section class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title"><div class="sheet-handle" aria-hidden="true"></div><div class="sheet-header"><h2 id="sheet-title"></h2><button class="sheet-close" id="sheet-close" aria-label="Закрыть"><span class="asset-icon" style="--icon:url('/product-picker/assets/close.svg')"></span></button></div><div id="sheet-content"></div></section></div>
+<div class="sr-only" id="announcement" aria-live="polite" aria-atomic="true"></div>
+</main>
+<template id="product-template"><article class="product-view" hidden aria-hidden="true"><div class="product-art"><img alt="" draggable="false" decoding="async"></div><div class="product-copy"><h2></h2><p></p></div></article></template>
+<script type="module" src="./app.js"></script>
+</body></html>
