@@ -148,12 +148,12 @@
   },
   {
     "id": "v18",
-    "title": "Точки · подсветка",
+    "title": "После preRFD",
     "note": "Подписи реагируют на близость кружка; изменившийся процент подсвечивается зелёным или красным.",
     "app": "feedback",
     "hidden": false,
-    "menuOrder": 1.5,
+    "menuOrder": 0,
     "file": "variants/v18-feedback/index.html",
-    "revision": "card-size-20261120"
+    "revision": "prerfd-20261120"
   }
 ]

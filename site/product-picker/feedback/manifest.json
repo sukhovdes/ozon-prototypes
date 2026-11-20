@@ -1,7 +1,7 @@
 {
   "id": "/product-picker/feedback/",
-  "name": "Подбор продукта · Точки с подсветкой",
-  "short_name": "Точки · подсветка",
+  "name": "Подбор продукта · После preRFD",
+  "short_name": "После preRFD",
   "lang": "ru",
   "start_url": "/product-picker/feedback/",
   "scope": "/product-picker/feedback/",
