@@ -20,7 +20,7 @@
  let rendered='';
  function render(){
   const version=document.documentElement.dataset.pickerVersion;
-  const destination=version?(version==='v17'?'nbp/':version==='v16'?'three/':version==='v14'?'matrix/':'#'+version):location.pathname.slice(localRoot.pathname.length)+location.search+location.hash;
+  const destination=version?(version==='v18'?'feedback/':version==='v17'?'nbp/':version==='v16'?'three/':version==='v14'?'matrix/':'#'+version):location.pathname.slice(localRoot.pathname.length)+location.search+location.hash;
   const url=new URL(destination,shareRoot).href;link.href=url;
   if(!desktop.matches||url===rendered)return;
   const qr=qrcode(0,'M');qr.addData(url);qr.make();code.innerHTML=qr.createSvgTag({cellSize:4,margin:16,scalable:true});rendered=url;

@@ -1,0 +1,19 @@
+{
+  "id": "/product-picker/feedback/",
+  "name": "Подбор продукта · Точки с подсветкой",
+  "short_name": "Точки · подсветка",
+  "lang": "ru",
+  "start_url": "/product-picker/feedback/",
+  "scope": "/product-picker/feedback/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/product-picker/assets/v09-00-safecc1.png",
+      "sizes": "1080x1080",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
