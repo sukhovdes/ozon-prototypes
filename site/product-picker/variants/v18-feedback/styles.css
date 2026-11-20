@@ -24,6 +24,6 @@ html.mobile{background:#fff;--mobile-top-height:clamp(300px,calc((100dvh - env(s
 
 /* Emphasis follows proximity; only the changed percentage flashes. */
 .label{transition:color 160ms ease-out}
-.rate-value{border-radius:4px;transition:color 300ms ease,background-color 300ms ease}
-.rate-value[data-change=up]{color:#16853c;background-color:#e5f7ec}
-.rate-value[data-change=down]{color:#d72834;background-color:#fff0f1}
+.rate-value{transition:color 300ms ease}
+.rate-value[data-change=up]{color:#10c44c}
+.rate-value[data-change=down]{color:#f53c14}
