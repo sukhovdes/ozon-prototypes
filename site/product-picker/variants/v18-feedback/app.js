@@ -1,8 +1,8 @@
 
 'use strict';
-import {labelStrengths,rateRange,rateChange} from './model.js?v=feedback-20261120';
+import {labelStrengths,rateRange,rateChange} from './model.js?v=travel17-20261120';
 import {IntroSequence} from '/product-picker/assets/intro-sequence-v1.js?v=onboarding-nudge-20261111';
-import {PRODUCTS,PRODUCT_MATRIX} from '/product-picker/assets/product-matrix-v2.js?v=tops-cta-20261111';
+import {PRODUCTS,PRODUCT_MATRIX} from '/product-picker/assets/product-matrix-v2.js?v=travel17-20261120';
 const $=selector=>document.querySelector(selector);
 const state={row:1,col:1,cardIndex:0,tutorialDismissed:false};
 const positions=['Слева сверху','По центру сверху','Справа сверху','Слева по центру','В центре','Справа по центру','Слева снизу','По центру снизу','Справа снизу'];

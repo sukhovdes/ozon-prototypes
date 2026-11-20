@@ -1,6 +1,6 @@
 'use strict';
 import {IntroSequence} from '/product-picker/assets/intro-sequence-v1.js?v=onboarding-nudge-20261111';
-import {PRODUCTS,productsAt,EMPTY_TITLE} from './data.js?v=tops-cta-20261111';
+import {PRODUCTS,productsAt,EMPTY_TITLE} from './data.js?v=travel17-20261120';
 const $=selector=>document.querySelector(selector);
 const state={row:1,col:1,cardIndex:0,tutorialDismissed:false};
 const positions=['Слева сверху','По центру сверху','Справа сверху','Слева по центру','В центре','Справа по центру','Слева снизу','По центру снизу','Справа снизу'];

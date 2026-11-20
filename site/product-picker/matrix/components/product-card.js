@@ -1,4 +1,4 @@
-import {PRODUCTS} from '../data.js?v=tops-cta-20261111';
+import {PRODUCTS} from '../data.js?v=travel17-20261120';
 export class ProductCard{
  constructor(element,onOpen){
   this.element=element;this.views=new Map();this.active=null;this.button=element.querySelector('#product-action');this.animation=null;
